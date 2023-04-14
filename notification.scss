@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap");
+
+:root {
+	--notification-default: #ffce06;
+	--notification-success: green;
+	--notification-warning: red;
+	--notification-information: #6679a4;
+	--notification-stuff: #2196f3;
+	--notification-another: #5ccfe6;
+	--notification-text: #db515a;
+
+	--close-color: white;
+	--close-background-color: black;
+	--close-border: none;
+	--close-border-radius: 50%;
+	--close-font-size: 1.2rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Roboto;
+}
+
+.notification {
+	position: relative;
+	padding: 20px;
+	background-color: var(--notification-default);
+	color: var(--notification-text);
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: bold;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5px;
+
+	.notification-close {
+		position: absolute;
+		top: 18px;
+		right: 5px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: white;
+		cursor: pointer;
+		border: 3px solid var(--notification-text);
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.notification-close:before,
+	.notification-close:after {
+		content: "";
+		position: absolute;
+		width: 12px;
+		height: 2px;
+		background-color: black;
+		transform-origin: center;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.notification-close:before {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(-0deg);
+	}
+
+	.notification-close:after {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	.notification-close:hover:before {
+		transform: translate(-50%, -50%) rotate(-225deg);
+		background-color: white;
+	}
+
+	.notification-close:hover:after {
+		transform: translate(-50%, -50%) rotate(225deg);
+		background-color: white;
+	}
+
+	.notification-close:hover {
+		background: radial-gradient(
+			circle at center,
+			red 0%,
+			var(--notification-text) 100%
+		);
+		/* border-color: transparent; */
+		border-color: #fff;
+		transform: scale(1.1);
+		transition: background 0.5s ease-in-out, transform 0.5s ease-in-out;
+	}
+}
+
+.success {
+	background-color: var(--notification-success) !important;
+	color: white;
+}
+
+.warning {
+	background-color: var(--notification-warning) !important;
+	color: #000;
+}
+
+.information {
+	background-color: var(--notification-information) !important;
+	color: #000;
+}
+
+.stuff {
+	background-color: var(--notification-stuff) !important;
+	color: #000;
+}
+
+.another {
+	background-color: var(--notification-another) !important;
+	color: #000;
+}
+
+/* .notification-close:hover {
+    border: 1px dashed orange;
+    animation: rotate 2s linear infinite;
+    background: transparent;
+  } */
+
+@keyframes rotate {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+// old
+
+// .notification {
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 10px;
+//   margin-bottom: 10px;
+//   // border-radius: 5px;
+//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+//   button {
+//     position: absolute;
+//     right: 10px;
+//     top: 10px;
+//     background-color: var(--close-background-color);
+//     color: var(--close-color);
+//     border: var(--close-border);
+//     border-radius: var(--close-border-radius);
+//     font-size: var(--close-font-size);
+//     padding: 5px 10px;
+//     cursor: pointer;
+//     transition: all 0.2s ease-in-out;
+
+//     &:hover {
+//       transform: scale(1.1);
+//     }
+//   }
+// }
+
+// .success {
+//   background-color: var(--success);
+//   color: white;
+// }
